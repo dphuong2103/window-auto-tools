@@ -3237,3 +3237,523 @@ TypeError: '_thread._ThreadHandle' object is not callable
 2025-07-04 22:49:48,793 - INFO - Waited for 1.0s.
 2025-07-04 22:49:48,874 - INFO - Error locating image D:/autowar/pass.png: 
 2025-07-04 22:49:49,362 - INFO - Stop signal received. Finishing current action...
+2025-07-04 23:01:34,741 - INFO - LOG: Starting main loop iteration.
+2025-07-04 23:01:34,948 - INFO - Performed click_location at (1450, 127)
+2025-07-04 23:01:36,000 - INFO - Waited for 1.0s.
+2025-07-04 23:01:36,327 - INFO - Performed click_image at Point(x=1867, y=596)
+2025-07-04 23:01:36,593 - INFO - Performed click_location at (518, 108)
+2025-07-04 23:01:37,596 - INFO - Waited for 1.0s.
+2025-07-04 23:01:37,837 - INFO - Performed click_location at (505, 414)
+2025-07-04 23:01:38,139 - INFO - Performed click_image at Point(x=958, y=601)
+2025-07-04 23:01:38,442 - INFO - Performed click_location at (1500, 819)
+2025-07-04 23:01:38,748 - INFO - Performed click_image at Point(x=1871, y=912)
+2025-07-04 23:01:39,022 - INFO - Performed click_location at (463, 883)
+2025-07-04 23:01:40,026 - INFO - Waited for 1.0s.
+2025-07-04 23:01:40,262 - INFO - Performed click_location at (528, 729)
+2025-07-04 23:01:40,564 - INFO - Performed click_image at Point(x=958, y=914)
+2025-07-04 23:01:40,844 - INFO - Performed click_location at (494, 75)
+2025-07-04 23:01:43,327 - INFO - Stop signal received. Finishing current action...
+2025-07-04 23:01:57,595 - INFO - LOG: Starting main loop iteration.
+2025-07-04 23:01:57,801 - INFO - Performed click_location at (1450, 127)
+2025-07-04 23:01:58,845 - INFO - Waited for 1.0s.
+2025-07-04 23:01:59,148 - INFO - Performed click_image at Point(x=1867, y=596)
+2025-07-04 23:01:59,421 - INFO - Performed click_location at (518, 108)
+2025-07-04 23:02:00,425 - INFO - Waited for 1.0s.
+2025-07-04 23:02:00,666 - INFO - Performed click_location at (505, 414)
+2025-07-04 23:02:00,983 - INFO - Performed click_image at Point(x=958, y=601)
+2025-07-04 23:02:01,291 - INFO - Performed click_location at (1500, 819)
+2025-07-04 23:02:01,598 - INFO - Performed click_image at Point(x=1871, y=912)
+2025-07-04 23:02:01,875 - INFO - Performed click_location at (463, 883)
+2025-07-04 23:02:02,879 - INFO - Waited for 1.0s.
+2025-07-04 23:02:03,120 - INFO - Performed click_location at (528, 729)
+2025-07-04 23:02:03,438 - INFO - Performed click_image at Point(x=958, y=914)
+2025-07-04 23:02:03,521 - INFO - Error locating image D:/autowar/cancel.png: 
+2025-07-04 23:02:04,518 - INFO - Waited for 1.0s.
+2025-07-04 23:02:04,754 - INFO - Performed click_location at (528, 729)
+2025-07-04 23:02:05,060 - INFO - Performed click_image at Point(x=958, y=914)
+2025-07-04 23:02:05,135 - INFO - Error locating image D:/autowar/cancel.png: 
+2025-07-04 23:02:06,140 - INFO - Waited for 1.0s.
+2025-07-04 23:02:06,405 - INFO - Performed click_location at (528, 729)
+2025-07-04 23:02:06,741 - INFO - Performed click_image at Point(x=958, y=914)
+2025-07-04 23:02:06,831 - INFO - Error locating image D:/autowar/cancel.png: 
+2025-07-04 23:02:07,837 - INFO - Waited for 1.0s.
+2025-07-04 23:02:08,064 - INFO - Performed click_location at (528, 729)
+2025-07-04 23:02:08,139 - INFO - Error locating image D:/autowar/start.png: 
+2025-07-04 23:02:08,140 - INFO - Action 'click_image' failed: target not found.
+2025-07-04 23:02:15,549 - INFO - LOG: Starting main loop iteration.
+2025-07-04 23:02:15,761 - INFO - Performed click_location at (1450, 127)
+2025-07-04 23:02:16,795 - INFO - Waited for 1.0s.
+2025-07-04 23:02:17,101 - INFO - Performed click_image at Point(x=1867, y=596)
+2025-07-04 23:02:17,380 - INFO - Performed click_location at (518, 108)
+2025-07-04 23:02:18,383 - INFO - Waited for 1.0s.
+2025-07-04 23:02:18,614 - INFO - Performed click_location at (505, 414)
+2025-07-04 23:02:18,916 - INFO - Performed click_image at Point(x=958, y=601)
+2025-07-04 23:02:19,235 - INFO - Performed click_location at (1500, 819)
+2025-07-04 23:02:19,537 - INFO - Performed click_image at Point(x=1871, y=913)
+2025-07-04 23:02:19,806 - INFO - Performed click_location at (463, 883)
+2025-07-04 23:02:20,810 - INFO - Waited for 1.0s.
+2025-07-04 23:02:21,054 - INFO - Performed click_location at (528, 729)
+2025-07-04 23:02:21,369 - INFO - Performed click_image at Point(x=958, y=914)
+2025-07-04 23:02:21,652 - INFO - Performed click_location at (494, 75)
+2025-07-04 23:02:41,750 - INFO - Waited for 20.0s.
+2025-07-04 23:02:41,822 - INFO - Error locating image D:/autowar/pass.png: 
+2025-07-04 23:02:41,823 - INFO - Error: Missing 'endif' for block starting near line 59.
+2025-07-05 11:11:51,638 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:11:51,844 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:11:52,101 - INFO - Typed: /d.
+2025-07-05 11:11:52,202 - INFO - Pressed key: enter
+2025-07-05 11:11:52,410 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:11:52,616 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:11:52,874 - INFO - Typed: /d.
+2025-07-05 11:11:52,976 - INFO - Pressed key: enter
+2025-07-05 11:11:57,522 - INFO - Stop signal received. Finishing current action...
+2025-07-05 11:12:15,520 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:12:15,730 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:12:15,984 - INFO - Typed: /d.
+2025-07-05 11:12:16,085 - INFO - Pressed key: enter
+2025-07-05 11:12:16,290 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:12:16,500 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:12:16,755 - INFO - Typed: /d.
+2025-07-05 11:12:16,857 - INFO - Pressed key: enter
+2025-07-05 11:12:32,906 - INFO - Waited for 16.0s.
+2025-07-05 11:12:33,110 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:12:33,320 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:12:33,576 - INFO - Typed: /d.
+2025-07-05 11:12:33,685 - INFO - Pressed key: enter
+2025-07-05 11:12:33,886 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:12:34,091 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:12:34,346 - INFO - Typed: /d.
+2025-07-05 11:12:34,448 - INFO - Pressed key: enter
+2025-07-05 11:12:50,502 - INFO - Waited for 16.0s.
+2025-07-05 11:12:50,707 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:12:50,917 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:12:51,174 - INFO - Typed: /d.
+2025-07-05 11:12:51,277 - INFO - Pressed key: enter
+2025-07-05 11:12:51,483 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:12:51,686 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:12:51,945 - INFO - Typed: /d.
+2025-07-05 11:12:52,048 - INFO - Pressed key: enter
+2025-07-05 11:13:08,100 - INFO - Waited for 16.0s.
+2025-07-05 11:13:08,306 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:13:08,514 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:13:08,770 - INFO - Typed: /d.
+2025-07-05 11:13:08,873 - INFO - Pressed key: enter
+2025-07-05 11:13:09,075 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:13:09,285 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:13:09,540 - INFO - Typed: /d.
+2025-07-05 11:13:09,641 - INFO - Pressed key: enter
+2025-07-05 11:13:25,698 - INFO - Waited for 16.0s.
+2025-07-05 11:13:25,903 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:13:26,112 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:13:26,366 - INFO - Typed: /d.
+2025-07-05 11:13:26,468 - INFO - Pressed key: enter
+2025-07-05 11:13:26,673 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:13:26,887 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:13:27,143 - INFO - Typed: /d.
+2025-07-05 11:13:27,245 - INFO - Pressed key: enter
+2025-07-05 11:13:43,299 - INFO - Waited for 16.0s.
+2025-07-05 11:13:43,506 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:13:43,718 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:13:43,973 - INFO - Typed: /d.
+2025-07-05 11:13:44,074 - INFO - Pressed key: enter
+2025-07-05 11:13:44,284 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:13:44,494 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:13:44,748 - INFO - Typed: /d.
+2025-07-05 11:13:44,850 - INFO - Pressed key: enter
+2025-07-05 11:14:00,906 - INFO - Waited for 16.0s.
+2025-07-05 11:14:01,112 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:14:01,321 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:14:01,579 - INFO - Typed: /d.
+2025-07-05 11:14:01,681 - INFO - Pressed key: enter
+2025-07-05 11:14:01,889 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:14:02,099 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:14:02,356 - INFO - Typed: /d.
+2025-07-05 11:14:02,459 - INFO - Pressed key: enter
+2025-07-05 11:14:18,513 - INFO - Waited for 16.0s.
+2025-07-05 11:14:18,722 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:14:18,932 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:14:19,188 - INFO - Typed: /d.
+2025-07-05 11:14:19,291 - INFO - Pressed key: enter
+2025-07-05 11:14:19,493 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:14:19,703 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:14:19,964 - INFO - Typed: /d.
+2025-07-05 11:14:20,065 - INFO - Pressed key: enter
+2025-07-05 11:14:36,120 - INFO - Waited for 16.0s.
+2025-07-05 11:14:36,326 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:14:36,537 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:14:36,794 - INFO - Typed: /d.
+2025-07-05 11:14:36,897 - INFO - Pressed key: enter
+2025-07-05 11:14:37,099 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:14:37,308 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:14:37,565 - INFO - Typed: /d.
+2025-07-05 11:14:37,667 - INFO - Pressed key: enter
+2025-07-05 11:14:53,721 - INFO - Waited for 16.0s.
+2025-07-05 11:14:53,933 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:14:54,143 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:14:54,401 - INFO - Typed: /d.
+2025-07-05 11:14:54,502 - INFO - Pressed key: enter
+2025-07-05 11:14:54,708 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:14:54,918 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:14:55,173 - INFO - Typed: /d.
+2025-07-05 11:14:55,275 - INFO - Pressed key: enter
+2025-07-05 11:15:11,324 - INFO - Waited for 16.0s.
+2025-07-05 11:15:11,528 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:15:11,739 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:15:11,994 - INFO - Typed: /d.
+2025-07-05 11:15:12,097 - INFO - Pressed key: enter
+2025-07-05 11:15:12,297 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:15:12,502 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:15:12,765 - INFO - Typed: /d.
+2025-07-05 11:15:12,866 - INFO - Pressed key: enter
+2025-07-05 11:15:28,926 - INFO - Waited for 16.0s.
+2025-07-05 11:15:29,135 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:15:29,343 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:15:29,598 - INFO - Typed: /d.
+2025-07-05 11:15:29,701 - INFO - Pressed key: enter
+2025-07-05 11:15:29,902 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:15:30,114 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:15:30,372 - INFO - Typed: /d.
+2025-07-05 11:15:30,472 - INFO - Pressed key: enter
+2025-07-05 11:15:46,532 - INFO - Waited for 16.0s.
+2025-07-05 11:15:46,737 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:15:46,948 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:15:47,203 - INFO - Typed: /d.
+2025-07-05 11:15:47,307 - INFO - Pressed key: enter
+2025-07-05 11:15:47,509 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:15:47,719 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:15:47,974 - INFO - Typed: /d.
+2025-07-05 11:15:48,076 - INFO - Pressed key: enter
+2025-07-05 11:16:04,128 - INFO - Waited for 16.0s.
+2025-07-05 11:16:04,335 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:16:04,544 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:16:04,799 - INFO - Typed: /d.
+2025-07-05 11:16:04,901 - INFO - Pressed key: enter
+2025-07-05 11:16:05,105 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:16:05,316 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:16:05,572 - INFO - Typed: /d.
+2025-07-05 11:16:05,673 - INFO - Pressed key: enter
+2025-07-05 11:16:21,730 - INFO - Waited for 16.0s.
+2025-07-05 11:16:21,939 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:16:22,155 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:16:22,412 - INFO - Typed: /d.
+2025-07-05 11:16:22,514 - INFO - Pressed key: enter
+2025-07-05 11:16:22,716 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:16:22,926 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:16:23,183 - INFO - Typed: /d.
+2025-07-05 11:16:23,284 - INFO - Pressed key: enter
+2025-07-05 11:16:39,346 - INFO - Waited for 16.0s.
+2025-07-05 11:16:39,551 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:16:39,765 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:16:40,020 - INFO - Typed: /d.
+2025-07-05 11:16:40,122 - INFO - Pressed key: enter
+2025-07-05 11:16:40,329 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:16:40,538 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:16:40,798 - INFO - Typed: /d.
+2025-07-05 11:16:40,906 - INFO - Pressed key: enter
+2025-07-05 11:16:56,957 - INFO - Waited for 16.0s.
+2025-07-05 11:16:57,164 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:16:57,372 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:16:57,627 - INFO - Typed: /d.
+2025-07-05 11:16:57,730 - INFO - Pressed key: enter
+2025-07-05 11:16:57,932 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:16:58,149 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:16:58,407 - INFO - Typed: /d.
+2025-07-05 11:16:58,508 - INFO - Pressed key: enter
+2025-07-05 11:17:14,560 - INFO - Waited for 16.0s.
+2025-07-05 11:17:14,766 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:17:14,976 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:17:15,232 - INFO - Typed: /d.
+2025-07-05 11:17:15,334 - INFO - Pressed key: enter
+2025-07-05 11:17:15,536 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:17:15,745 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:17:16,000 - INFO - Typed: /d.
+2025-07-05 11:17:16,101 - INFO - Pressed key: enter
+2025-07-05 11:17:32,153 - INFO - Waited for 16.0s.
+2025-07-05 11:17:32,357 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:17:32,567 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:17:32,822 - INFO - Typed: /d.
+2025-07-05 11:17:32,922 - INFO - Pressed key: enter
+2025-07-05 11:17:33,128 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:17:33,342 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:17:33,598 - INFO - Typed: /d.
+2025-07-05 11:17:33,700 - INFO - Pressed key: enter
+2025-07-05 11:17:49,753 - INFO - Waited for 16.0s.
+2025-07-05 11:17:49,960 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:17:50,174 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:17:50,429 - INFO - Typed: /d.
+2025-07-05 11:17:50,532 - INFO - Pressed key: enter
+2025-07-05 11:17:50,734 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:17:50,942 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:17:51,197 - INFO - Typed: /d.
+2025-07-05 11:17:51,299 - INFO - Pressed key: enter
+2025-07-05 11:18:07,349 - INFO - Waited for 16.0s.
+2025-07-05 11:18:07,560 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:18:07,772 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:18:08,027 - INFO - Typed: /d.
+2025-07-05 11:18:08,131 - INFO - Pressed key: enter
+2025-07-05 11:18:08,333 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:18:08,540 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:18:08,794 - INFO - Typed: /d.
+2025-07-05 11:18:08,894 - INFO - Pressed key: enter
+2025-07-05 11:18:24,951 - INFO - Waited for 16.0s.
+2025-07-05 11:18:25,156 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:18:25,368 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:18:25,624 - INFO - Typed: /d.
+2025-07-05 11:18:25,727 - INFO - Pressed key: enter
+2025-07-05 11:18:25,928 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:18:26,137 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:18:26,393 - INFO - Typed: /d.
+2025-07-05 11:18:26,496 - INFO - Pressed key: enter
+2025-07-05 11:18:42,549 - INFO - Waited for 16.0s.
+2025-07-05 11:18:42,753 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:18:42,966 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:18:43,221 - INFO - Typed: /d.
+2025-07-05 11:18:43,321 - INFO - Pressed key: enter
+2025-07-05 11:18:43,526 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:18:43,734 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:18:43,990 - INFO - Typed: /d.
+2025-07-05 11:18:44,092 - INFO - Pressed key: enter
+2025-07-05 11:19:00,145 - INFO - Waited for 16.0s.
+2025-07-05 11:19:00,350 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:19:00,564 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:19:00,819 - INFO - Typed: /d.
+2025-07-05 11:19:00,923 - INFO - Pressed key: enter
+2025-07-05 11:19:01,124 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:19:01,332 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:19:01,588 - INFO - Typed: /d.
+2025-07-05 11:19:01,689 - INFO - Pressed key: enter
+2025-07-05 11:19:17,740 - INFO - Waited for 16.0s.
+2025-07-05 11:19:17,949 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:19:18,162 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:19:18,418 - INFO - Typed: /d.
+2025-07-05 11:19:18,521 - INFO - Pressed key: enter
+2025-07-05 11:19:18,721 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:19:18,929 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:19:19,184 - INFO - Typed: /d.
+2025-07-05 11:19:19,285 - INFO - Pressed key: enter
+2025-07-05 11:19:35,340 - INFO - Waited for 16.0s.
+2025-07-05 11:19:35,545 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:19:35,759 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:19:36,015 - INFO - Typed: /d.
+2025-07-05 11:19:36,117 - INFO - Pressed key: enter
+2025-07-05 11:19:36,318 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:19:36,528 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:19:36,791 - INFO - Typed: /d.
+2025-07-05 11:19:36,893 - INFO - Pressed key: enter
+2025-07-05 11:19:52,949 - INFO - Waited for 16.0s.
+2025-07-05 11:19:53,160 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:19:53,368 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:19:53,622 - INFO - Typed: /d.
+2025-07-05 11:19:53,725 - INFO - Pressed key: enter
+2025-07-05 11:19:53,925 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:19:54,131 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:19:54,389 - INFO - Typed: /d.
+2025-07-05 11:19:54,491 - INFO - Pressed key: enter
+2025-07-05 11:20:10,544 - INFO - Waited for 16.0s.
+2025-07-05 11:20:10,749 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:20:10,958 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:20:11,213 - INFO - Typed: /d.
+2025-07-05 11:20:11,324 - INFO - Pressed key: enter
+2025-07-05 11:20:11,527 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:20:11,740 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:20:11,997 - INFO - Typed: /d.
+2025-07-05 11:20:12,097 - INFO - Pressed key: enter
+2025-07-05 11:20:28,153 - INFO - Waited for 16.0s.
+2025-07-05 11:20:28,360 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:20:28,569 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:20:28,826 - INFO - Typed: /d.
+2025-07-05 11:20:28,928 - INFO - Pressed key: enter
+2025-07-05 11:20:29,128 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:20:29,337 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:20:29,592 - INFO - Typed: /d.
+2025-07-05 11:20:29,693 - INFO - Pressed key: enter
+2025-07-05 11:20:45,748 - INFO - Waited for 16.0s.
+2025-07-05 11:20:45,957 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:20:46,170 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:20:46,425 - INFO - Typed: /d.
+2025-07-05 11:20:46,528 - INFO - Pressed key: enter
+2025-07-05 11:20:46,729 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:20:46,943 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:20:47,201 - INFO - Typed: /d.
+2025-07-05 11:20:47,303 - INFO - Pressed key: enter
+2025-07-05 11:21:03,357 - INFO - Waited for 16.0s.
+2025-07-05 11:21:03,562 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:21:03,773 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:21:04,028 - INFO - Typed: /d.
+2025-07-05 11:21:04,133 - INFO - Pressed key: enter
+2025-07-05 11:21:04,334 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:21:04,543 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:21:04,799 - INFO - Typed: /d.
+2025-07-05 11:21:04,901 - INFO - Pressed key: enter
+2025-07-05 11:21:20,951 - INFO - Waited for 16.0s.
+2025-07-05 11:21:21,160 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:21:21,368 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:21:21,630 - INFO - Typed: /d.
+2025-07-05 11:21:21,732 - INFO - Pressed key: enter
+2025-07-05 11:21:21,942 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:21:22,146 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:21:22,401 - INFO - Typed: /d.
+2025-07-05 11:21:22,502 - INFO - Pressed key: enter
+2025-07-05 11:21:38,555 - INFO - Waited for 16.0s.
+2025-07-05 11:21:38,763 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:21:38,973 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:21:39,229 - INFO - Typed: /d.
+2025-07-05 11:21:39,330 - INFO - Pressed key: enter
+2025-07-05 11:21:39,535 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:21:39,754 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:21:40,010 - INFO - Typed: /d.
+2025-07-05 11:21:40,112 - INFO - Pressed key: enter
+2025-07-05 11:21:56,171 - INFO - Waited for 16.0s.
+2025-07-05 11:21:56,374 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:21:56,583 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:21:56,839 - INFO - Typed: /d.
+2025-07-05 11:21:56,942 - INFO - Pressed key: enter
+2025-07-05 11:21:57,142 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:21:57,348 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:21:57,602 - INFO - Typed: /d.
+2025-07-05 11:21:57,704 - INFO - Pressed key: enter
+2025-07-05 11:22:13,762 - INFO - Waited for 16.0s.
+2025-07-05 11:22:13,966 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:22:14,175 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:22:14,438 - INFO - Typed: /d.
+2025-07-05 11:22:14,541 - INFO - Pressed key: enter
+2025-07-05 11:22:14,751 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:22:14,954 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:22:15,209 - INFO - Typed: /d.
+2025-07-05 11:22:15,309 - INFO - Pressed key: enter
+2025-07-05 11:22:31,365 - INFO - Waited for 16.0s.
+2025-07-05 11:22:31,569 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:22:31,780 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:22:32,037 - INFO - Typed: /d.
+2025-07-05 11:22:32,140 - INFO - Pressed key: enter
+2025-07-05 11:22:32,342 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:22:32,551 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:22:32,804 - INFO - Typed: /d.
+2025-07-05 11:22:32,905 - INFO - Pressed key: enter
+2025-07-05 11:22:48,960 - INFO - Waited for 16.0s.
+2025-07-05 11:22:49,167 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:22:49,376 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:22:49,632 - INFO - Typed: /d.
+2025-07-05 11:22:49,733 - INFO - Pressed key: enter
+2025-07-05 11:22:49,938 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:22:50,150 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:22:50,404 - INFO - Typed: /d.
+2025-07-05 11:22:50,504 - INFO - Pressed key: enter
+2025-07-05 11:23:06,555 - INFO - Waited for 16.0s.
+2025-07-05 11:23:06,768 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:23:06,974 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:23:07,230 - INFO - Typed: /d.
+2025-07-05 11:23:07,334 - INFO - Pressed key: enter
+2025-07-05 11:23:07,535 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:23:07,746 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:23:08,001 - INFO - Typed: /d.
+2025-07-05 11:23:08,102 - INFO - Pressed key: enter
+2025-07-05 11:23:24,153 - INFO - Waited for 16.0s.
+2025-07-05 11:23:24,365 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:23:24,571 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:23:24,827 - INFO - Typed: /d.
+2025-07-05 11:23:24,930 - INFO - Pressed key: enter
+2025-07-05 11:23:25,131 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:23:25,343 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:23:25,598 - INFO - Typed: /d.
+2025-07-05 11:23:25,699 - INFO - Pressed key: enter
+2025-07-05 11:23:41,750 - INFO - Waited for 16.0s.
+2025-07-05 11:23:41,960 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:23:42,170 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:23:42,425 - INFO - Typed: /d.
+2025-07-05 11:23:42,527 - INFO - Pressed key: enter
+2025-07-05 11:23:42,728 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:23:42,933 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:23:43,189 - INFO - Typed: /d.
+2025-07-05 11:23:43,291 - INFO - Pressed key: enter
+2025-07-05 11:23:59,345 - INFO - Waited for 16.0s.
+2025-07-05 11:23:59,551 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:23:59,762 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:24:00,018 - INFO - Typed: /d.
+2025-07-05 11:24:00,122 - INFO - Pressed key: enter
+2025-07-05 11:24:00,327 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:24:00,537 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:24:00,793 - INFO - Typed: /d.
+2025-07-05 11:24:00,895 - INFO - Pressed key: enter
+2025-07-05 11:24:16,951 - INFO - Waited for 16.0s.
+2025-07-05 11:24:17,155 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:24:17,364 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:24:17,621 - INFO - Typed: /d.
+2025-07-05 11:24:17,721 - INFO - Pressed key: enter
+2025-07-05 11:24:17,929 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:24:18,136 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:24:18,391 - INFO - Typed: /d.
+2025-07-05 11:24:18,493 - INFO - Pressed key: enter
+2025-07-05 11:24:34,546 - INFO - Waited for 16.0s.
+2025-07-05 11:24:34,753 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:24:34,962 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:24:35,219 - INFO - Typed: /d.
+2025-07-05 11:24:35,322 - INFO - Pressed key: enter
+2025-07-05 11:24:35,524 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:24:35,733 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:24:35,989 - INFO - Typed: /d.
+2025-07-05 11:24:36,089 - INFO - Pressed key: enter
+2025-07-05 11:24:52,143 - INFO - Waited for 16.0s.
+2025-07-05 11:24:52,350 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:24:52,560 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:24:52,815 - INFO - Typed: /d.
+2025-07-05 11:24:52,919 - INFO - Pressed key: enter
+2025-07-05 11:24:53,119 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:24:53,331 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:24:53,585 - INFO - Typed: /d.
+2025-07-05 11:24:53,687 - INFO - Pressed key: enter
+2025-07-05 11:25:09,744 - INFO - Waited for 16.0s.
+2025-07-05 11:25:09,948 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:25:10,157 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:25:10,412 - INFO - Typed: /d.
+2025-07-05 11:25:10,514 - INFO - Pressed key: enter
+2025-07-05 11:25:10,718 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:25:10,927 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:25:11,183 - INFO - Typed: /d.
+2025-07-05 11:25:11,285 - INFO - Pressed key: enter
+2025-07-05 11:25:27,343 - INFO - Waited for 16.0s.
+2025-07-05 11:25:27,552 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:25:27,765 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:25:28,020 - INFO - Typed: /d.
+2025-07-05 11:25:28,122 - INFO - Pressed key: enter
+2025-07-05 11:25:28,330 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:25:28,538 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:25:28,794 - INFO - Typed: /d.
+2025-07-05 11:25:28,895 - INFO - Pressed key: enter
+2025-07-05 11:25:44,947 - INFO - Waited for 16.0s.
+2025-07-05 11:25:45,156 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:25:45,369 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:25:45,623 - INFO - Typed: /d.
+2025-07-05 11:25:45,726 - INFO - Pressed key: enter
+2025-07-05 11:25:45,927 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:25:46,136 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:25:46,392 - INFO - Typed: /d.
+2025-07-05 11:25:46,494 - INFO - Pressed key: enter
+2025-07-05 11:26:02,547 - INFO - Waited for 16.0s.
+2025-07-05 11:26:02,754 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:26:02,966 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:26:03,225 - INFO - Typed: /d.
+2025-07-05 11:26:03,327 - INFO - Pressed key: enter
+2025-07-05 11:26:03,535 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:26:03,741 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:26:04,001 - INFO - Typed: /d.
+2025-07-05 11:26:04,103 - INFO - Pressed key: enter
+2025-07-05 11:26:20,158 - INFO - Waited for 16.0s.
+2025-07-05 11:26:20,368 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:26:20,575 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:26:20,831 - INFO - Typed: /d.
+2025-07-05 11:26:20,934 - INFO - Pressed key: enter
+2025-07-05 11:26:21,136 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:26:21,348 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:26:21,604 - INFO - Typed: /d.
+2025-07-05 11:26:21,705 - INFO - Pressed key: enter
+2025-07-05 11:26:37,757 - INFO - Waited for 16.0s.
+2025-07-05 11:26:37,963 - INFO - Performed click_location at (42, 121)
+2025-07-05 11:26:38,173 - INFO - Performed click_location at (300, 664)
+2025-07-05 11:26:38,428 - INFO - Typed: /d.
+2025-07-05 11:26:38,529 - INFO - Pressed key: enter
+2025-07-05 11:26:38,733 - INFO - Performed click_location at (1741, 129)
+2025-07-05 11:26:38,943 - INFO - Performed click_location at (1233, 664)
+2025-07-05 11:26:39,199 - INFO - Typed: /d.
+2025-07-05 11:26:39,300 - INFO - Pressed key: enter
+2025-07-05 11:26:55,350 - INFO - Waited for 16.0s.
