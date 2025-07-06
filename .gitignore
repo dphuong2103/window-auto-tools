@@ -1,3 +1,5 @@
 dist
 build
-__pycach__
+__pychache__
+automation.log
+config.json

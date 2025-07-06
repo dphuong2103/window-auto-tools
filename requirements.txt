@@ -6,3 +6,5 @@ fuzzywuzzy==0.18.0
 numpy==1.26.4
 pandas
 # python-Levenshtein==0.25.0; platform_system != "Emscripten"
+sv_ttk==2.5.3
+playsound==1.2.2
