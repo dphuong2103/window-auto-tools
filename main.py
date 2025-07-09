@@ -2,10 +2,11 @@ import tkinter as tk
 from tkinter import ttk, filedialog, messagebox, simpledialog
 import os, sys, threading, subprocess, logging, re, json, shutil, sv_ttk
 from key_binder import KeyBinder
-from script_engine import ScriptEngine
+from script_engine import ScriptEngine, ScriptExitException
 from script_manager import ScriptManager
 from macro_recorder import MacroRecorder
 from pynput import mouse
+import pyautogui
 
 class Tooltip:
     def __init__(self, widget, title, example=""):
@@ -53,7 +54,7 @@ class TextLineNumbers(tk.Canvas):
 class SyntaxHighlighter:
     def __init__(self, text_widget):
         self.text = text_widget; self.text.bind("<<Modified>>", self.on_text_modified, add=True)
-        self.patterns = { 'comment': r'#.*', 'command': r'\b(click|double_click|right_click|move_to|scroll|click_and_drag|wait|delay|loop|endloop|break|if|endif|eval|var|script|popup|log|select_window|key|type|playback|get_text)\w*\b', 'string': r'\"[^\"\n]*\"', 'number': r'\b-?\d+(\.\d+)?\b', 'operator': r'[\+\-\*/<>=!]=?', 'variable': r'\$\w+' }
+        self.patterns = { 'comment': r'#.*', 'command': r'\b(click|double_click|right_click|move_to|scroll|click_and_drag|wait|delay|loop|endloop|break|if|endif|eval|var|script|popup|log|select_window|key|type|playback|get_text|sound|screenshot|exit|mouse_pos)\w*\b', 'string': r'\"[^\"\n]*\"', 'number': r'\b-?\d+(\.\d+)?\b', 'operator': r'[\+\-\*/<>=!]=?', 'variable': r'\$\w+' }
         self.text.tag_configure("command", foreground="#0000ff"); self.text.tag_configure("string", foreground="#A31515"); self.text.tag_configure("comment", foreground="#008000"); self.text.tag_configure("number", foreground="#881391"); self.text.tag_configure("operator", foreground="#881391"); self.text.tag_configure("variable", foreground="#001080", font=("Segoe UI", 10, "italic"))
     def on_text_modified(self, event=None):
         if self.text.edit_modified(): self.highlight_all(); self.text.edit_modified(False)
@@ -65,6 +66,34 @@ class SyntaxHighlighter:
         content = self.text.get("1.0", "end")
         for match in re.finditer(pattern, content, re.IGNORECASE):
             start, end = match.span(); self.text.tag_add(tag, f"1.0 + {start} chars", f"1.0 + {end} chars")
+
+class PixelColorDialog(tk.Toplevel):
+    def __init__(self, parent, x, y, initial_color, callback):
+        super().__init__(parent); self.callback = callback
+        self.title("Pixel Condition"); self.transient(parent); self.grab_set()
+        
+        frame = ttk.Frame(self, padding=15); frame.pack(expand=True, fill="both")
+        
+        ttk.Label(frame, text=f"Pixel at ({x}, {y})", font=("Segoe UI", 10, "bold")).grid(row=0, columnspan=2, pady=(0,10))
+        
+        self.r_var = tk.StringVar(value=str(initial_color[0])); self.g_var = tk.StringVar(value=str(initial_color[1])); self.b_var = tk.StringVar(value=str(initial_color[2])); self.tol_var = tk.StringVar(value="10")
+        
+        ttk.Label(frame, text="Red (R):").grid(row=1, column=0, sticky="w", pady=2); ttk.Entry(frame, textvariable=self.r_var).grid(row=1, column=1, sticky="ew")
+        ttk.Label(frame, text="Green (G):").grid(row=2, column=0, sticky="w", pady=2); ttk.Entry(frame, textvariable=self.g_var).grid(row=2, column=1, sticky="ew")
+        ttk.Label(frame, text="Blue (B):").grid(row=3, column=0, sticky="w", pady=2); ttk.Entry(frame, textvariable=self.b_var).grid(row=3, column=1, sticky="ew")
+        ttk.Label(frame, text="Tolerance:").grid(row=4, column=0, sticky="w", pady=2); ttk.Entry(frame, textvariable=self.tol_var).grid(row=4, column=1, sticky="ew")
+        
+        btn_frame = ttk.Frame(frame); btn_frame.grid(row=5, columnspan=2, pady=(10,0))
+        ttk.Button(btn_frame, text="Confirm", command=lambda: self.on_confirm(x, y), style="Accent.TButton").pack(side="left", padx=5)
+        ttk.Button(btn_frame, text="Cancel", command=self.destroy).pack(side="left", padx=5)
+
+    def on_confirm(self, x, y):
+        try:
+            r, g, b, tol = self.r_var.get(), self.g_var.get(), self.b_var.get(), self.tol_var.get()
+            self.callback(f"if_pixel_matches {x} {y} {r} {g} {b} {tol}\n")
+            self.destroy()
+        except Exception as e:
+            messagebox.showerror("Invalid Input", str(e), parent=self)
 
 class AutomationApp:
     def __init__(self, root, file_to_open=None):
@@ -134,7 +163,7 @@ class AutomationApp:
         x, y = self.root.winfo_pointerxy(); widget = self.root.winfo_containing(x, y)
         if widget is canvas or str(widget).startswith(str(canvas)): canvas.yview_scroll(int(-1*(event.delta/120)), "units")
     def populate_command_panel(self):
-        commands = { "Click": [('click_location', 'Click at a specific coordinate', 'click_location 100 200'), ('click_text', 'Find and click on visible text', 'click_text "Login"'), ('click_image', 'Find and click an image on screen', 'click_image "images/button.png"')], "Double-Click": [('double_click_location', 'Double-click at a coordinate', 'double_click_location 100 200'), ('double_click_text', 'Find and double-click text', 'double_click_text "My Computer"'), ('double_click_image', 'Find and double-click an image', 'double_click_image "images/icon.png"')], "Other Mouse": [('right_click_location', 'Right-click at a coordinate', 'right_click_location 100 200'), ('move_to', 'Move the mouse without clicking', 'move_to 500 500'), ('click_and_drag', 'Drag mouse from start to end point', 'click_and_drag 100 100 500 500 1.5'), ('scroll', 'Scroll the mouse wheel', 'scroll -10')], "Variables & Logic": [('var', 'Assign a value to a variable', 'var my_var 10'), ('eval', 'Perform math and assign', 'eval result = $my_var * 2'), ('if_eval', 'Check a condition using variables', 'if_eval $result > 15')], "Conditional (IF)": [('if_text_region', 'IF text is in a region', 'if_text_region "Success" 100 100 300 200'), ('if_text_screen', 'IF text is on screen', 'if_text_screen "Welcome"'), ('if_image_screen', 'IF image is on screen', 'if_image_screen "ok.png"'), ('if_not_image_screen', 'IF NOT image is on screen', 'if_not_image_screen "error.png"'), ('else', 'ELSE block for a preceding IF', 'else'), ('endif', 'Marks the end of an IF/ELSE block', 'endif')], "Loops": [('loop', 'Repeat a block of code N times', 'loop 5'), ('endloop', 'Marks the end of a LOOP block', 'endloop'), ('break', 'Exit the current loop', 'break')], "Data & Text": [('get_text_region', 'Get text from a region into a variable', 'get_text_region my_variable')], "Flow & Logging": [('script', 'Run another script file', 'script "path/to/sub.txt"'), ('playback', 'Playback a recorded macro', 'playback "login.json"'), ('popup', 'Show a message box to the user', 'popup "Task Complete!"'), ('log', 'Write a message to the output console', 'log "Starting Step 2..."')], "Timing": [('wait', 'Pause the script for seconds', 'wait 2.5'), ('delay', 'Alias for wait', 'delay 1')], "Window & Keyboard": [('select_window', 'Bring a window to the foreground', 'select_window "Notepad"'), ('key', 'Press a special keyboard key', 'key enter'), ('type', 'Type a string of text', 'type "Hello, World!"')] }
+        commands = { "Click": [('click_location', 'Click at a specific coordinate', 'click_location 100 200'), ('click_text', 'Find and click on visible text', 'click_text "Login"'), ('click_image', 'Find and click an image on screen', 'click_image "images/button.png"')], "Double-Click": [('double_click_location', 'Double-click at a coordinate', 'double_click_location 100 200'), ('double_click_text', 'Find and double-click text', 'double_click_text "My Computer"'), ('double_click_image', 'Find and double-click an image', 'double_click_image "images/icon.png"')], "Other Mouse": [('right_click_location', 'Right-click at a coordinate', 'right_click_location 100 200'), ('move_to', 'Move the mouse without clicking', 'move_to 500 500'), ('click_and_drag', 'Drag mouse from start to end point', 'click_and_drag 100 100 500 500 1.5'), ('scroll', 'Scroll the mouse wheel', 'scroll -10')], "Variables & Logic": [('var', 'Assign a value to a variable', 'var my_var 10'), ('eval', 'Perform math and assign', 'eval result = $my_var * 2'), ('if_eval', 'Check a condition using variables', 'if_eval $result > 15')], "Conditional (IF)": [('if_pixel_matches', 'IF a pixel matches a color', 'if_pixel_matches 100 200 255 0 0 10'), ('if_text_region', 'IF text is in a region', 'if_text_region "Success" 100 100 300 200'), ('if_text_screen', 'IF text is on screen', 'if_text_screen "Welcome"'), ('if_image_screen', 'IF image is on screen', 'if_image_screen "ok.png"'), ('if_not_image_screen', 'IF NOT image is on screen', 'if_not_image_screen "error.png"'), ('else', 'ELSE block for a preceding IF', 'else'), ('endif', 'Marks the end of an IF/ELSE block', 'endif')], "Loops & Control Flow": [('loop', 'Repeat a block of code N times', 'loop 5'), ('endloop', 'Marks the end of a LOOP block', 'endloop'), ('break', 'Exit the current loop', 'break'), ('exit', 'Terminate the entire script', 'exit')], "Data & Text": [('get_text_region', 'Get text from a region into a variable', 'get_text_region my_variable 10 20 30 40'), ('mouse_pos', 'Get mouse coords into variables', 'mouse_pos x_coord y_coord')], "System & Media": [('sound', 'Play a sound file (.wav, .mp3)', 'sound "path/to/alert.mp3"'), ('screenshot', 'Save a screenshot to a file', 'screenshot "capture.png" 10 20 30 40')], "Flow & Logging": [('script', 'Run another script file', 'script "path/to/sub.txt"'), ('playback', 'Playback a recorded macro', 'playback "login.json"'), ('popup', 'Show a message box to the user', 'popup "Task Complete!"'), ('log', 'Write a message to the output console', 'log "Starting Step 2..."')], "Timing": [('wait', 'Pause the script for seconds', 'wait 2.5'), ('delay', 'Alias for wait', 'delay 1')], "Window & Keyboard": [('select_window', 'Bring a window to the foreground', 'select_window "Notepad"'), ('key', 'Press a special keyboard key', 'key enter'), ('type', 'Type a string of text', 'type "Hello, World!"')] }
         row = 0
         for category, cmds in commands.items():
             ttk.Label(self.command_panel, text=category, font=("Segoe UI", 10, "bold")).grid(row=row, column=0, sticky="w", pady=(10, 2), padx=5); row += 1
@@ -276,8 +305,19 @@ class AutomationApp:
         elif command_id == 'playback':
             file_path = filedialog.askopenfilename(title="Select Macro File", filetypes=[("Macro files", "*.json")])
             if file_path: self.editor.insert(tk.INSERT, f"playback \"{file_path}\"\n")
+        elif command_id == 'sound':
+            file_path = filedialog.askopenfilename(title="Select Sound File", filetypes=[("Sound Files", "*.mp3 *.wav")])
+            if file_path: self.editor.insert(tk.INSERT, f'sound "{file_path}"\n')
+        elif command_id == 'screenshot':
+            self.selection_mode = 'region'
+            self.status_var.set("Drag a region to capture (Esc for fullscreen)"); self.root.iconify(); 
+            RegionSelectorOverlay(self.root, self.finalize_screenshot_selection)
+        elif command_id == 'if_pixel_matches':
+            self.selection_mode = 'point'; self.status_var.set(f"Click a point on screen to sample pixel color (Esc to cancel)"); self.root.iconify(); 
+            PointSelectorOverlay(self.root, self.finalize_pixel_selection)
         else:
-            line_content = f"{command_id}\n" if command_id in ['endloop', 'endif', 'break', 'else'] else f"{command_id} "
+            line_content_map = {'endloop': 'endloop\n', 'endif': 'endif\n', 'break': 'break\n', 'else': 'else\n', 'exit': 'exit\n', 'mouse_pos': 'mouse_pos x_var y_var\n'}
+            line_content = line_content_map.get(command_id, f"{command_id} ")
             self.editor.insert(tk.INSERT, line_content); self.status_var.set(f"Inserted {command_id}. Fill in parameters.")
 
     def start_pynput_listener(self): self.root.iconify(); self.mouse_listener = mouse.Listener(on_click=self.on_global_click); self.mouse_listener.start()
@@ -309,6 +349,30 @@ class AutomationApp:
             x1, y1, x2, y2 = region; self.editor.insert(tk.INSERT, f"{self.current_command} {x1} {y1} {x2} {y2}\n"); self.status_var.set("Region captured for get_text_region.")
         else: self.status_var.set("Region selection cancelled.")
         self.cancel_selection()
+    def finalize_screenshot_selection(self, region):
+        file_path = filedialog.asksaveasfilename(defaultextension=".png", filetypes=[("PNG files", "*.png"), ("All files", "*.*")])
+        if file_path:
+            if region:
+                x1, y1, x2, y2 = region
+                self.editor.insert(tk.INSERT, f'screenshot "{file_path}" {x1} {y1} {x2} {y2}\n')
+            else: # Fullscreen if region selection was cancelled
+                self.editor.insert(tk.INSERT, f'screenshot "{file_path}"\n')
+            self.status_var.set("Screenshot command inserted.")
+        else:
+            self.status_var.set("Screenshot cancelled.")
+        self.cancel_selection()
+    def finalize_pixel_selection(self, coords):
+        if coords:
+            x, y = coords
+            try:
+                color = pyautogui.pixel(x, y)
+                PixelColorDialog(self.root, x, y, color, lambda cmd: self.editor.insert(tk.INSERT, cmd))
+            except Exception as e:
+                messagebox.showerror("Error", f"Could not get pixel color: {e}")
+        else:
+            self.status_var.set("Pixel selection cancelled.")
+        self.cancel_selection()
+
     def cancel_selection_with_event(self, event=None): self.cancel_selection()
     def cancel_selection(self):
         self.stop_pynput_listener();
@@ -327,7 +391,10 @@ class AutomationApp:
         self.is_script_running.set()
         thread = threading.Thread(target=self.run_script_in_thread, args=(script,), daemon=True); thread.start()
     def run_script_in_thread(self, script):
-        try: self.engine.run_script(script)
+        try: 
+            self.engine.run_script(script)
+        except ScriptExitException: # Should already be handled in engine, but as a safeguard
+             self.update_status("Stopped by exit command")
         finally:
             self.is_script_running.clear(); self.root.after(0, self.root.deiconify)
     def stop_script_event(self, event=None):

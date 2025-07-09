@@ -8,6 +8,7 @@ import sys
 import numpy as np
 import json
 from fuzzywuzzy import fuzz
+from playsound import playsound
 
 # Tesseract path setup
 def resource_path(relative_path):
@@ -16,6 +17,10 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 TESSERACT_DIR = 'tesseract'
 TESSERACT_EXE_PATH = resource_path(os.path.join(TESSERACT_DIR, 'tesseract.exe'))
+
+class ScriptExitException(Exception):
+    """Custom exception to signal a script exit command."""
+    pass
 
 class ScriptEngine:
     def __init__(self, update_output, update_status, popup_callback):
@@ -61,12 +66,14 @@ class ScriptEngine:
     def run_script(self, script):
         self.running = True; self.update_status("Running... (F6 to stop)")
         lines = script.split('\n'); i = 0; loop_stack = []
-        while i < len(lines) and self.running:
-            line = lines[i].strip()
-            current_line_num = i
-            i += 1 
-            if not line or line.startswith('#'): continue
-            try:
+        current_line_num = 0
+        try:
+            while i < len(lines) and self.running:
+                line = lines[i].strip()
+                current_line_num = i
+                i += 1 
+                if not line or line.startswith('#'): continue
+                
                 parts = line.split(' ', 1); command = parts[0]; args = parts[1] if len(parts) > 1 else ""
                 if command.startswith('if_'):
                     condition_met = self.handle_if(command, args)
@@ -92,15 +99,17 @@ class ScriptEngine:
                         if not self.running: break
                         handler(args)
                     else: self.update_output(f"Unknown command: '{command}'")
-            except Exception as e:
-                self.update_output(f"ERROR on line {current_line_num + 1}: {line}\n -> {e}"); self.running = False
+
+        except ScriptExitException:
+            self.update_output("Script execution terminated by 'exit' command.")
+            self.running = False
+        except Exception as e:
+            self.update_output(f"ERROR on line {current_line_num + 1}: {lines[current_line_num].strip()}\n -> {e}"); self.running = False
         
-        # --- THIS SECTION IS MODIFIED ---
-        # The script is "finished" only if the running flag was not externally set to False
         is_finished_normally = self.running 
         status = "Finished" if is_finished_normally else "Stopped"
         self.update_status(status); self.running = False
-        return is_finished_normally # Return the final state
+        return is_finished_normally
 
     def stop_script(self):
         if self.running: self.running = False; self.update_output("Stop signal received...")
@@ -123,7 +132,7 @@ class ScriptEngine:
     def handle_click_and_drag(self, args): x1, y1, x2, y2, duration = args.split(); pyautogui.moveTo(int(x1), int(y1)); pyautogui.dragTo(int(x2), int(y2), duration=float(duration)); self.update_output(f"Dragged from ({x1},{y1}) to ({x2},{y2})")
     def handle_scroll(self, args): pyautogui.scroll(int(args)); self.update_output(f"Scrolled {args} units")
     def handle_wait(self, args):
-        seconds = float(args); end_time = time.time() + seconds
+        seconds = float(self._evaluate_expression(args)); end_time = time.time() + seconds
         while time.time() < end_time:
             if not self.running: break
             time.sleep(0.1)
@@ -160,7 +169,6 @@ class ScriptEngine:
             if handler: handler(" ".join(map(str, e_args.values())))
         self.update_output(f"--- Finished macro playback ---")
     
-    # --- THIS FUNCTION IS FIXED ---
     def handle_script(self, args):
         path = args.strip('"')
         if not os.path.exists(path): self.update_output(f"Sub-script not found: {path}"); return
@@ -169,15 +177,53 @@ class ScriptEngine:
             self.update_output(f"--- Starting sub-script: {os.path.basename(path)} ---")
             sub_engine = ScriptEngine(self.update_output, self.update_status, self.popup_callback)
             sub_engine.variables = self.variables.copy()
-            # The sub_engine's run_script now returns True if it finished, False if stopped
             sub_script_finished_normally = sub_engine.run_script(script_content)
-            # Only stop the parent script if the sub-script was explicitly stopped (not just finished)
             if not sub_script_finished_normally:
                 self.running = False
+            else: # parent script inherits variables from child
+                self.variables.update(sub_engine.variables)
             self.update_output(f"--- Finished sub-script: {os.path.basename(path)} ---")
+        except ScriptExitException:
+            # Propagate exit command to stop this script as well
+            raise ScriptExitException()
         except Exception as e: self.update_output(f"Error in sub-script {path}: {e}")
 
     def handle_log(self, args): self.update_output(f"LOG: {args.strip('"')}")
+
+    def handle_sound(self, args):
+        path = args.strip('"')
+        if not os.path.exists(path): self.update_output(f"Sound file not found: {path}"); return
+        try:
+            playsound(path, block=False)
+            self.update_output(f"Played sound: {os.path.basename(path)}")
+        except Exception as e:
+            self.update_output(f"Could not play sound {path}: {e}")
+
+    def handle_screenshot(self, args):
+        parts = args.split()
+        path = parts[0].strip('"')
+        region = None
+        if len(parts) == 5:
+            x1, y1, x2, y2 = map(int, parts[1:])
+            region = (x1, y1, x2 - x1, y2 - y1)
+        
+        try:
+            pyautogui.screenshot(path, region=region)
+            self.update_output(f"Screenshot saved to {path}")
+        except Exception as e:
+            self.update_output(f"Failed to take screenshot: {e}")
+
+    def handle_exit(self, args):
+        raise ScriptExitException()
+
+    def handle_mouse_pos(self, args):
+        parts = args.split()
+        if len(parts) != 2: self.update_output("Error: mouse_pos requires two variable names."); return
+        var_x, var_y = parts
+        x, y = pyautogui.position()
+        self.variables[var_x] = x
+        self.variables[var_y] = y
+        self.update_output(f"Stored mouse position ({x}, {y}) in ${var_x} and ${var_y}")
 
     def handle_if(self, command, args):
         if not self.running: return False
@@ -193,7 +239,12 @@ class ScriptEngine:
             text, x1, y1, x2, y2 = match.groups(); region = (int(x1), int(y1), int(x2)-int(x1), int(y2)-int(y1))
             found_text = pytesseract.image_to_string(pyautogui.screenshot(region=region))
             is_match = fuzz.partial_ratio(text.lower(), found_text.lower()) > 80
-            self.update_output(f"IF: Check for '{text}' in {region}. Match: {is_match}"); return is_match
+            self.update_output(f"IF: Check for '{text}' in {region}. Match: {is_match}"); result = is_match
+        elif check_command == "if_pixel_matches":
+            parts = args.split(); x, y, r, g, b = map(int, parts[:5]); tolerance = int(parts[5]) if len(parts) > 5 else 0
+            match = pyautogui.pixelMatchesColor(x, y, (r, g, b), tolerance=tolerance)
+            self.update_output(f"IF: Pixel at ({x},{y}) matches ({r},{g},{b}) with tolerance {tolerance}. Match: {match}"); result = match
+
         return result if should_be_true else not result
         
     def find_matching_block_end(self, lines, start_index, start_cmds, end_cmds):
